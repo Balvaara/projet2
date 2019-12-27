@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %} Service{% endblock %}
+
+{% block body %}
+<section>
+    <label><h1>Ajouter Service</h1></label>
+    {{form_start(form)}}
+    
+    {{form_widget(form)}}
+    <button type="submit" class="btn btn-dark">Ajouter</button>
+
+    {{form_end(form)}}
+</section>
+{% endblock %}

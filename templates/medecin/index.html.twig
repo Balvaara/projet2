@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Medecin index{% endblock %}
+
+{% block body %}
+    
+    <h1 >Liste Medecin <a class="btn btn-dark" href="{{ path('medecin') }}" style="float: right;">Ajouter</a></h1>
+
+    <table class="table ">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Matricule</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Telephone</th>
+                <th>Adresse</th>
+                <th>Email</th>
+                <th>Service</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for medecin in medecins %}
+            <tr>
+                <td>{{ medecin.id }}</td>
+                <td>{{ medecin.matricule }}</td>
+                <td>{{ medecin.nom }}</td>
+                <td>{{ medecin.prenom }}</td>
+                <td>{{ medecin.tel }}</td>
+                <td>{{ medecin.adresse }}</td>
+                <td>{{ medecin.email }}</td>
+                <td>{{ medecin.services.libser }}</td>
+                <td>   
+                    <a href="{{ path('medecin.delete', {'id': medecin.id}) }}">
+                        <i class="fas fa-trash"></i>
+                        Supprimer</a>
+                    <a href="{{ path('medecin.edite', {'id': medecin.id}) }}">
+                            <i class="fas fa-pen"></i>
+                        Editer</a>
+                </td>
+            </tr>
+        {% else %}
+           
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block title %}Modification{% endblock %}
+
+{% block body %}
+<section>
+    <p  class="container" style="width: 20%;color: black;">Modification</p>
+    
+    {{form_start(form)}}
+
+    {{form_widget(form)}}
+   
+    <button type="submit" class="btn btn-dark">
+        Modifier
+    </button>
+    {{form_end(form)}}
+
+</section>
+{% endblock %}

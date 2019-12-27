@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Specialite {% endblock %}
+
+{% block body %}
+   
+     <h1>Liste Specialite 
+        <a class="btn btn-dark" href="{{ path('specialite.new') }}" style="float: right;">Ajouter</a>
+     </h1>
+
+    <table class="table ">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>Service</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for specialite in specialites %}
+            <tr>
+                <td>{{ specialite.id }}</td>
+                <td>{{ specialite.libsp }}</td>
+                <td>{{ specialite.services.libser}}</td>
+                <td>
+                    <a href="{{ path('specialite.delete', {'id': specialite.id}) }}">
+                            <i class="fas fa-trash"></i>
+                        Supprimer</a>
+                    <a href="{{ path('specialite.edite', {'id': specialite.id}) }}">
+                            <i class="fas fa-pen"></i>
+                        Editer</a>
+                </td>
+            </tr>
+        {% else %}
+           
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
